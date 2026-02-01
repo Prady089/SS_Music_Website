@@ -18,7 +18,8 @@
 /* Course Hero */
 .course-hero {
     margin-top: 60px;
-    height: 70vh;
+    height: clamp(50vh, 70vh, 80vh);
+    min-height: 400px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -79,13 +80,13 @@
 }
 
 .overview-content h2 {
-    font-size: 42px;
+    font-size: clamp(28px, 5vw, 42px);
     margin-bottom: 30px;
     font-weight: 700;
 }
 
 .overview-content p {
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: 20px;
@@ -99,7 +100,7 @@
 
 .course-curriculum h2 {
     text-align: center;
-    font-size: 42px;
+    font-size: clamp(28px, 5vw, 42px);
     margin-bottom: 60px;
     font-weight: 700;
 }
@@ -126,12 +127,12 @@
 }
 
 .curriculum-icon {
-    font-size: 48px;
+    font-size: clamp(36px, 6vw, 48px);
     margin-bottom: 20px;
 }
 
 .curriculum-item h3 {
-    font-size: 20px;
+    font-size: clamp(18px, 3vw, 20px);
     margin-bottom: 12px;
     font-weight: 600;
     color: var(--text-primary);
@@ -151,7 +152,7 @@
 
 .course-benefits h2 {
     text-align: center;
-    font-size: 42px;
+    font-size: clamp(28px, 5vw, 42px);
     margin-bottom: 60px;
     font-weight: 700;
 }
@@ -177,7 +178,7 @@
 }
 
 .benefit-card h3 {
-    font-size: 20px;
+    font-size: clamp(18px, 3vw, 20px);
     margin-bottom: 16px;
     font-weight: 600;
     color: var(--text-primary);
@@ -197,7 +198,7 @@
 
 .course-structure h2 {
     text-align: center;
-    font-size: 42px;
+    font-size: clamp(28px, 5vw, 42px);
     margin-bottom: 60px;
     font-weight: 700;
 }
@@ -222,7 +223,7 @@
 }
 
 .structure-item h3 {
-    font-size: 24px;
+    font-size: clamp(20px, 3.5vw, 24px);
     margin-bottom: 8px;
     font-weight: 700;
     color: var(--text-primary);
@@ -265,13 +266,13 @@
 }
 
 .course-cta h2 {
-    font-size: 42px;
+    font-size: clamp(28px, 5vw, 42px);
     margin-bottom: 16px;
     font-weight: 700;
 }
 
 .course-cta p {
-    font-size: 18px;
+    font-size: clamp(16px, 2.5vw, 18px);
     margin-bottom: 40px;
     opacity: 0.9;
 }
@@ -309,6 +310,7 @@
 @media (max-width: 768px) {
     .course-hero {
         height: 50vh;
+        min-height: 350px;
     }
 
     .course-hero-content h1 {
@@ -332,7 +334,21 @@
     .course-benefits h2,
     .course-structure h2,
     .course-cta h2 {
-        font-size: 32px;
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .curriculum-grid,
+    .benefits-grid,
+    .structure-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .curriculum-item,
+    .benefit-card,
+    .structure-item {
+        padding: 30px 20px;
     }
 
     .cta-buttons {
@@ -343,5 +359,29 @@
     .cta-buttons .btn {
         width: 100%;
         max-width: 300px;
+        text-align: center;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .course-hero {
+        margin-top: 50px;
+        min-height: 300px;
+    }
+
+    .curriculum-item,
+    .benefit-card,
+    .structure-item {
+        padding: 25px 15px;
+    }
+
+    .structure-item ul li {
+        font-size: 13px;
+        padding: 6px 0;
     }
 }

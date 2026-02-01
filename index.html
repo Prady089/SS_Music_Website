@@ -31,7 +31,7 @@
       };
     </script>
 <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
         .hero-gradient {
           background-color: #dc2626;
           background-image: linear-gradient(135deg, #ffffff 0%, #dc2626 70%);
@@ -63,6 +63,21 @@
         .tutor-figure .tutor-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.85); transition: opacity .45s ease; pointer-events: none; }
         .group:hover .tutor-figure .tutor-overlay { opacity: 0; }
         .group:hover .tutor-figure img { filter: none; transform: scale(1.03); }
+        
+        /* Mobile improvements for image grid */
+        @media (max-width: 768px) {
+          .grid-cols-12 {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            height: auto !important;
+          }
+          
+          .grid-cols-12 > div {
+            width: 100% !important;
+            height: 250px !important;
+          }
+        }
     </style>
     <style>
       /* Footer hero background helper: uses --bg-pos-x for horizontal tuning */
@@ -102,6 +117,20 @@
       @media (max-width: 767px){
         .elementor-216 .elementor-element-6ab8b81 > .elementor-widget-container { margin: 0 !important; }
         .elementor-216 .elementor-element-ded59f0 > .elementor-widget-container img { width: 100% !important; position: static !important; max-width: none; }
+      }
+      
+      /* Improve touch targets for mobile */
+      @media (max-width: 640px) {
+        header button {
+          min-width: 44px;
+          min-height: 44px;
+          padding: 0.75rem;
+        }
+        
+        nav a {
+          min-height: 44px;
+          padding: 0.75rem 1rem !important;
+        }
       }
     </style>
 </head>
@@ -334,19 +363,19 @@
   </section>
 
 <section class="relative max-w-6xl mx-auto px-4 pb-32 mt-24">
-<div class="relative bg-primary rounded-2xl shadow-2xl flex flex-col md:flex-row items-center min-h-[150px]">
-<div class="w-full md:w-2/3 p-10 md:p-16 z-10">
-<h2 class="text-2xl md:text-3xl font-black text-white leading-tight">
+<div class="relative bg-primary rounded-2xl shadow-2xl flex flex-col md:flex-row items-center min-h-[150px] overflow-hidden">
+<div class="w-full md:w-2/3 p-6 md:p-16 z-10">
+<h2 class="text-xl md:text-3xl font-black text-white leading-tight">
                 KICKSTART YOUR
             </h2>
-<h3 class="text-1xl md:text-2xl font-semibold text-white/90 mt-2 mb-8">
+<h3 class="text-lg md:text-2xl font-semibold text-white/90 mt-2 mb-6 md:mb-8">
                 MUSICAL JOURNEY WITH US
             </h3>
-<button class="bg-[#2D2D2D] hover:bg-black text-white font-bold py-4 px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl uppercase tracking-widest text-sm border-2 border-white/10">
+<button class="bg-[#2D2D2D] hover:bg-black text-white font-bold py-3 md:py-4 px-8 md:px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl uppercase tracking-widest text-xs md:text-sm border-2 border-white/10 w-full md:w-auto">
                 Enquire now
             </button>
 </div>
-<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-full h-80 z-20 pointer-events-none">
+<div class="hidden md:block absolute -top-24 left-1/2 -translate-x-1/2 w-full h-80 z-20 pointer-events-none">
 <div class="relative w-full h-full overflow-visible">
 <img alt="Musician playing guitar cutout" class="absolute bottom-0 right-0 h-full w-auto object-contain z-20 drop-shadow-[0_25px_35px_rgba(0,0,0,0.6)]" src="assets/home/home5.png"/>
 
@@ -354,7 +383,6 @@
 </div>
 </div>
   </div>
-</div>
 </div>
 </section>
 
