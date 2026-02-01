@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SS Music Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#dc2626", // Vibrant Red
+              "background-light": "#fef2f2",
+              "background-dark": "#111827",
+              "ss-red": "#dc2626",
+              "ss-dark": "#1a1a1a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "4px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+          background-color: #dc2626;
+          background-image: linear-gradient(135deg, #ffffff 0%, #dc2626 70%);
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+        .bw-photo {
+            filter: grayscale(100%) contrast(1.1);
+            transition: filter 0.3s ease;
+        }
+        .bw-photo:hover {
+            filter: grayscale(0%) contrast(1);
+        }
+        .red-cover { position: relative; border-radius: .5rem; overflow: hidden; }
+        .red-cover img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+        .red-cover .cover { position: absolute; inset: 0; background: rgba(220, 38, 38, 0.31); transition: opacity .5s ease; }
+        .red-cover:hover img { transform: scale(1.03); }
+        .red-cover:hover .cover { opacity: 0; }
+    </style>
+</head>
+<body class="bg-white dark:bg-background-dark transition-colors duration-300">
+<header class="bg-white py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
+<div class="flex items-center gap-4">
+  <a href="#" class="flex items-center">
+    <img src="assets/logo/SS Music Logo.png" alt="SS Music Academy logo" class="h-10 w-auto"/>
+  </a>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden">
+  <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md hover:bg-gray-100">
+    <span class="material-icons">menu</span>
+  </button>
+</div>
+
+<nav class="hidden md:flex items-center gap-6">
+  <a href="index.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Home</a>
+  <a href="course.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Courses</a>
+  <a href="events.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Events</a>
+  <a href="gallery.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Gallery</a>
+  <a href="contact.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Contact</a>
+</nav>
+<!-- Mobile nav (hidden by default) -->
+<div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 bg-white shadow-lg mt-16 z-40">
+  <div class="px-4 py-4 space-y-2">
+    <a href="index.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Home</a>
+    <a href="course.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Courses</a>
+    <a href="events.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Events</a>
+    <a href="gallery.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Gallery</a>
+    <a href="contact.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Contact</a>
+  </div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+<div class="z-10">
+<p class="text-ss-red text-2xl md:text-6xl font-bold mb-4">Be The Future of Music</p>
+<div class="max-w-lg mb-10">
+<p class="text-ss-dark text-lg md:text-xl font-medium leading-relaxed">
+                        Welcome to SS Music Academy, <span class="font-bold">A CAREER DRIVEN MUSIC ACADEMY</span>. 
+                        Our vision is to transform the music education system in India with a Career Driven approach.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="bg-ss-dark text-white text-lg font-bold px-10 py-4 hover:bg-black transition-colors shadow-lg">
+                        Courses
+                    </button>
+<button class="border-2 border-ss-dark text-ss-dark text-lg font-bold px-10 py-4 hover:bg-ss-dark hover:text-white transition-all">
+                        About us
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-12 grid-rows-6 gap-4 h-[500px] md:h-[600px] relative">
+<div class="col-span-7 row-span-3">
+  <div class="red-cover h-full w-full rounded-lg shadow-xl">
+    <img alt="Musician singing" class="bw-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb2rVzfMpErIVJ2upL02kuecds2xZr9ndfX6vnKaUdUBq7hlDTjXdbZSYkrUhZNyo6ve3CSfMNRyfdtF8JQG0BGdftR3hdWrPJLk72mMx1P8kKt-wetkOe1xK9apKcnz7PQ6bM4NaToy03hj9-BbeEqXu3O1Wyh6Yj-ZFa4xkfe0hl8JC8CeMxEyVCBZCdofVaHtRkM__tiUUWy36H9-GfiWWiw5OZI67XfDa0UckEewTvA682LiHHMKF7-nT4yONP3wBNQkbBrg4"/>
+    <div class="cover"></div>
+  </div>
+</div>
+<div class="col-span-5 row-span-4">
+<img alt="Indian man playing piano" class="bw-photo w-full h-full object-cover rounded-lg shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHpCz9cOnOVt40x2dlt_OlXDM7BIT1e8_C-Yxce-cgVUIy5lY-dqwA-9mcPsea9TVmN5Rgd00F-MBuGw9q0Ux52CSzWzLA98bp8cuCf0ZQDJrIYkOMAEUE-TpfLbUliQeVNjULbNlvlbbbbdhhHPXrxVppWc1HsTlc0yNLh02v1oPuPh5KPSXbSOW1XjUgCNN5Hq8CgnjDwccmKxWKss8bCi8GqOEeIS_Su9WfMm8BLUhi_F2MoZZhFWk7D8FLzFZ1CLe_qUephyk"/>
+</div>
+<div class="col-span-7 row-span-3">
+<img alt="Drums close up" class="bw-photo w-full h-full object-cover rounded-lg shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfAIPv_QCXgO5aCzWOfr4PepHuXMQOxS1ktHCKMCgAv3vJf_-RwleuxOSD6i3KPkIvwiO0_oYwoYbb6h011ypM1AxJFBCfFv5BAM10kHLdaJOEtLaiQS2JvOpwZkOZMUl8QaLDCPmufIAQFvqKVYWmzVXv2FOQA7DkFqBUuFr5Lp2vcIb8KaMa8vrdtWyONe_ZliH3pDnqqjICr9LIgS2aW0NMkb8v-mmbhpH2SwXImm0KH0sFdNkOTb8QlT_fpM_EExQ4w1Tgg18"/>
+</div>
+<div class="col-span-5 row-span-2">
+  <div class="red-cover h-full w-full rounded-lg shadow-xl">
+    <img alt="Musician portrait" class="bw-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy_oq7ytD5Nxnpv2mcs-VHjioHlkvv9TTSyJoAlXQ7Ox2M6iEJKBitG32Q4Q-7ChzoZIRhdS4QlgNmvoHEPqMfw_4bJs2fQ0suN0fP8qL5UOWuQpn2t7xvB7D8LmiD9yQRiLRB17vGXHlOzsaYk3vKqxNluxX7XAGBRXa-scezPHxHV-jJBaVB3izvjQziPdI1BX4U1XP8-dnLQ1I2obnxqEAkVC8eBG85PjsnGePYTaz07uFbN1DJFZUUsVmM0bRKTYBIqYDBYJk"/>
+    <div class="cover"></div>
+  </div>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-ss-dark opacity-10 rounded-full blur-3xl"></div>
+</section>
+<section class="py-20 px-6 md:px-12 bg-white dark:bg-gray-900 transition-colors">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-3 gap-12 text-center">
+<div class="p-8 border-b-4 border-primary bg-background-light dark:bg-gray-800 rounded-lg">
+<span class="material-icons-outlined text-5xl text-primary mb-4">school</span>
+<h3 class="text-xl font-bold mb-2 dark:text-white">Expert Faculty</h3>
+<p class="text-gray-600 dark:text-gray-400">Learn from industry veterans and internationally certified musicians.</p>
+</div>
+<div class="p-8 border-b-4 border-primary bg-background-light dark:bg-gray-800 rounded-lg">
+<span class="material-icons-outlined text-5xl text-primary mb-4">work_outline</span>
+<h3 class="text-xl font-bold mb-2 dark:text-white">Career Guidance</h3>
+<p class="text-gray-600 dark:text-gray-400">Comprehensive support to launch your professional music career.</p>
+</div>
+<div class="p-8 border-b-4 border-primary bg-background-light dark:bg-gray-800 rounded-lg">
+<span class="material-icons-outlined text-5xl text-primary mb-4">mic_external_on</span>
+<h3 class="text-xl font-bold mb-2 dark:text-white">Modern Studios</h3>
+<p class="text-gray-600 dark:text-gray-400">Access to state-of-the-art recording and practice facilities.</p>
+</div>
+</div>
+</div>
+</section>
+    <footer class="bg-slate-950 text-white pt-24 pb-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+          <div class="space-y-6">
+            <div>
+              <span class="text-xl font-display font-bold tracking-tight">SS Music Academy</span>
+            </div>
+            <p class="text-slate-400 max-w-xs leading-relaxed">India's first career-oriented music academy with the vision to transform the music education system.</p>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-8 text-primary uppercase tracking-widest">Company</h4>
+            <ul class="space-y-4 text-slate-400 font-medium"><li><a class="hover:text-white transition-colors" href="#">About</a></li><li><a class="hover:text-white transition-colors" href="#">Contact</a></li><li><a class="hover:text-white transition-colors" href="#">Courses</a></li><li><a class="hover:text-white transition-colors" href="#">Events</a></li></ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-8 text-primary uppercase tracking-widest">Support</h4>
+            <ul class="space-y-4 text-slate-400 font-medium">
+              <li><a class="hover:text-white transition-colors" href="careers.html">Career</a></li>
+              <li><a class="hover:text-white transition-colors" href="terms.html">Terms</a></li>
+              <li><a class="hover:text-white transition-colors" href="privacy.html">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="space-y-6">
+            <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+              <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+                <span class="material-icons-outlined text-base">phone</span>
+              </div>
+              <div>
+                <div class="text-slate-900 font-semibold text-sm">Chennai - Porur</div>
+                <div class="text-slate-700 text-xs">+91-9884595666</div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+              <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+                <span class="material-icons-outlined text-base">phone</span>
+              </div>
+              <div>
+                <div class="text-slate-900 font-semibold text-sm">Chennai - Kovur</div>
+                <div class="text-slate-700 text-xs">Email id : +91 98846 40999</div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+              <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+                <span class="material-icons-outlined text-base">phone</span>
+              </div>
+              <div>
+                <div class="text-slate-900 font-semibold text-sm">USA - Mckinney, Texas</div>
+                <div class="text-slate-700 text-xs">+1-(945)-350-8347</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm"><p>© 2024 SS Music Academy. All rights reserved.</p></div>
+      </div>
+    </footer>
+
+    <!-- Standardized WhatsApp floating button -->
+    <div class="fixed bottom-8 right-8 z-50">
+      <a class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform" href="https://wa.me/+919884595666" target="_blank">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.63 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      </a>
+    </div>
+
+<script>
+  (function(){
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded','false');
+      } else {
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+    // hide on resize to desktop
+    window.addEventListener('resize', function(){ if (window.innerWidth >= 768) { menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); } });
+  })();
+</script>
+
+</body></html>
+
+
+
+
+

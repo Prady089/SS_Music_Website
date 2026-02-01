@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Events | SS Music Academy</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#dc2626", // Vibrant Red
+              "background-light": "#fef2f2",
+              "background-dark": "#111827",
+              "ss-red": "#dc2626",
+              "ss-dark": "#1a1a1a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "4px",
+            },
+          },
+        },
+      };
+    </script>
+<style type="text/tailwindcss">
+        .bubble-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(255, 59, 48, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 59, 48, 0.08) 0%, transparent 40%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-background-dark transition-colors duration-300">
+<header class="bg-white py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
+<div class="flex items-center gap-4">
+  <a href="#" class="flex items-center">
+    <img src="assets/logo/SS Music Logo.png" alt="SS Music Academy logo" class="h-10 w-auto"/>
+  </a>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden">
+  <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md hover:bg-gray-100">
+    <span class="material-icons">menu</span>
+  </button>
+</div>
+
+<nav class="hidden md:flex items-center gap-6">
+  <a href="index.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Home</a>
+  <a href="course.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Courses</a>
+  <a href="events.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Events</a>
+  <a href="gallery.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Gallery</a>
+  <a href="contact.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Contact</a>
+</nav>
+<!-- Mobile nav (hidden by default) -->
+<div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 bg-white shadow-lg mt-16 z-40">
+  <div class="px-4 py-4 space-y-2">
+    <a href="index.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Home</a>
+    <a href="course.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Courses</a>
+    <a href="events.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Events</a>
+    <a href="gallery.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Gallery</a>
+    <a href="contact.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Contact</a>
+  </div>
+</div>
+</header>
+
+<main>
+<section class="relative py-20 bubble-gradient overflow-hidden border-b border-slate-100 dark:border-slate-800">
+<div class="container mx-auto px-6 text-center relative z-10">
+<h1 class="text-5xl md:text-7xl font-display font-extrabold mb-6 tracking-tight">
+                Upcoming <span class="text-primary">Events</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                Join our exclusive masterclasses, live concerts, and workshops led by industry maestros.
+            </p>
+</div>
+</section>
+<section class="py-24 px-6">
+    <div class="container mx-auto max-w-6xl">
+        <div class="relative bg-primary rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row items-center text-white p-12 md:p-20 shadow-2xl shadow-primary/30">
+            <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+                <svg class="w-full h-full fill-white" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><path d="M0 400C150 400 250 300 400 0H0V400Z"></path></svg>
+            </div>
+            <div class="relative z-10 w-full md:w-3/5 text-left">
+                <h2 class="text-4xl md:text-6xl font-display font-black leading-tight mb-6 md:mb-8">
+                    SS Music Academy <span class="block md:inline">5th Annual Day Celebration.</span>
+                </h2>
+                <p class="max-w-2xl text-lg md:text-xl mb-8 text-white/90">
+                    Join our Annual Day celebration on <strong>February 15th, 2026</strong> at <strong>Sri Rajalakshmi Mahal, Porur</strong>. Legendary Music Director <strong>Thenisai Thendral Deva</strong> will be our Chief Guest — enjoy live performances and special appearances.
+                </p>
+                
+            </div>
+            <div class="relative z-10 w-full md:w-2/5 mt-8 md:mt-0 flex justify-center">
+                <div class="relative w-80 h-80 md:w-96 md:h-96 group">
+                    <div class="absolute inset-0 bg-primary rounded-2xl opacity-10 group-hover:scale-110 transition-transform duration-500 pointer-events-none"></div>
+                    <div class="absolute inset-2 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl pointer-events-none"></div>
+                    <img alt="Event portrait" class="rounded-3xl shadow-2xl object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10" src="assets/events/event1.jpeg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-slate-50 dark:bg-slate-900/30">
+<div class="container mx-auto px-6">
+<!-- Filter buttons removed as requested -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl transition-all duration-500">
+<div class="relative h-64">
+    <div id="vocal-carousel" class="w-full h-full relative overflow-hidden rounded-tl-xl rounded-tr-xl">
+        <img id="vocal-img" alt="Vocal Masterclass" class="w-full h-full object-cover transition-opacity duration-700" src="assets/events/IPL18.jpg" />
+    </div>
+    <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-widest">IPL 18 Opening Cermony</div>
+    <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm dark:bg-slate-900/90 p-2 rounded-xl text-center min-w-[60px]">
+        <div class="text-primary font-bold text-xl leading-none">22</div>
+        <div class="text-[10px] font-bold uppercase">Mar 2025</div>
+    </div>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">IPL 18 Opening Ceremony</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Our SS Music violin Students where proud to partipate in IPL 18 Opening Ceremony.</p>
+<div class="flex items-center justify-between pt-6 border-t border-slate-50 dark:border-slate-700">
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl transition-all duration-500">
+<div class="relative h-64">
+<img alt="Beatmaking Session" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="assets/events/trailclass.png"/>
+<div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-widest">Trial Class</div>
+                    
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Trial Classes for all courses</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Book trial classes to experience our teaching methods and course offerings.</p>
+<div class="flex items-center justify-between pt-6 border-t border-slate-50 dark:border-slate-700">
+<span class="text-slate-500 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span> All Weekends
+                            </span>
+<button class="text-primary font-bold flex items-center gap-1 group/btn">
+                                Book you slots<span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform"></span>
+</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl transition-all duration-500">
+<div class="relative h-64">
+<img alt="Live Concert" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="assets/events/bridgeacademy.jpg"/>
+<div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-widest">Certification</div>
+                    
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Graduation Ceremony</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Our SS Music carnatic music students proudly graduated in a ceremony celebrating their achievements.</p>
+<div class="flex items-center justify-between pt-6 border-t border-slate-50 dark:border-slate-700">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-12 px-6">
+<div class="container mx-auto max-w-5xl">
+<div class="relative bg-primary rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row items-center text-white p-8 md:p-12 shadow-2xl shadow-primary/30">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full fill-white" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 400C150 400 250 300 400 0H0V400Z"></path>
+</svg>
+</div>
+<div class="relative z-10 w-full md:w-3/5">
+<h2 class="text-3xl md:text-5xl font-display font-black leading-tight mb-6 uppercase">
+                        Host Your Own Event with Us
+                    </h2>
+<p class="text-lg mb-6 text-white/90 font-medium">Have a vision for a performance or workshop? Let our experts manage the technicalities while you focus on the art.</p>
+<a href="contact.html" class="px-7 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center space-x-3 text-base">
+    <span>Get Started</span>
+    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-slate-950 text-white pt-24 pb-12">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+      <div class="space-y-6">
+        <div>
+          <span class="text-xl font-display font-bold tracking-tight">SS Music Academy</span>
+        </div>
+        <p class="text-slate-400 max-w-xs leading-relaxed">
+          India's first career-oriented music academy with the vision to transform the music education system.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold mb-8 text-primary uppercase tracking-widest">Company</h4>
+        <ul class="space-y-4 text-slate-400 font-medium">
+          <li><a class="hover:text-white transition-colors" href="#">About</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Contact</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Courses</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Events</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold mb-8 text-primary uppercase tracking-widest">Support</h4>
+        <ul class="space-y-4 text-slate-400 font-medium">
+          <li><a class="hover:text-white transition-colors" href="careers.html">Career</a></li>
+          <li><a class="hover:text-white transition-colors" href="terms.html">Terms</a></li>
+          <li><a class="hover:text-white transition-colors" href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+          <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+            <span class="material-icons-outlined text-base">phone</span>
+          </div>
+          <div>
+            <div class="text-slate-900 font-semibold text-sm">Chennai - Porur</div>
+            <div class="text-slate-700 text-xs">+91-9884595666</div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+          <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+            <span class="material-icons-outlined text-base">phone</span>
+          </div>
+          <div>
+            <div class="text-slate-900 font-semibold text-sm">Chennai - Kovur</div>
+            <div class="text-slate-700 text-xs">Email id : +91 98846 40999</div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+          <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+            <span class="material-icons-outlined text-base">phone</span>
+          </div>
+          <div>
+            <div class="text-slate-900 font-semibold text-sm">USA - Mckinney, Texas</div>
+            <div class="text-slate-700 text-xs">+1-(945)-350-8347</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+      <p>© 2024 SS Music Academy. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Standardized WhatsApp floating button -->
+<div class="fixed bottom-8 right-8 z-50">
+    <a class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform" href="https://wa.me/+919884595666" target="_blank">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.63 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+    </a>
+</div>
+<!-- Carousel script for Vocal Techniques card -->
+<script>
+    (function(){
+        const images = [
+            'assets/events/IPL1.jpg',
+            'assets/events/IPL2.jpg',
+            'assets/events/IPL3.jpg'
+        ];
+        const el = document.getElementById('vocal-img');
+        if(!el) return;
+        let idx = 0;
+        setInterval(()=>{
+            el.classList.add('opacity-0');
+            setTimeout(()=>{
+                idx = (idx+1) % images.length;
+                el.src = images[idx];
+                el.classList.remove('opacity-0');
+            }, 500);
+        }, 3000);
+    })();
+</script>
+
+<script>
+  (function(){
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded','false');
+      } else {
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+    // hide on resize to desktop
+    window.addEventListener('resize', function(){ if (window.innerWidth >= 768) { menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); } });
+  })();
+</script>
+
+</body></html>
+
+
+
+
+
+
+

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SS Music Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#dc2626", // Vibrant Red
+              "background-light": "#fef2f2",
+              "background-dark": "#111827",
+              "ss-red": "#dc2626",
+              "ss-dark": "#1a1a1a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "4px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+          background-color: #dc2626;
+          background-image: linear-gradient(135deg, #ffffff 0%, #dc2626 70%);
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+        .bubble-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(255,59,48,0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(255,59,48,0.08) 0%, transparent 40%);
+        }
+        .bw-photo, .home-bw {
+          filter: grayscale(100%) contrast(1.1);
+          transition: filter 0.3s ease;
+          cursor: pointer;
+        }
+        .bw-photo:hover, .home-bw:hover,
+        .bw-photo.revealed, .home-bw.revealed {
+          filter: grayscale(0%) contrast(1);
+        }
+        .red-cover { position: relative; border-radius: .5rem; overflow: hidden; }
+        .red-cover img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+        .red-cover .cover { position: absolute; inset: 0; background: rgba(220, 38, 38, 0.31); transition: opacity .5s ease; pointer-events: none; }
+        .red-cover:hover .bw-photo, .red-cover:hover .home-bw { filter: grayscale(0%) contrast(1); }
+        .red-cover:hover img { transform: scale(1.03); }
+        .red-cover:hover .cover { opacity: 0; }
+        /* Tutor image: black cover that unveils on hover */
+        .tutor-figure { position: relative; overflow: hidden; border-radius: .5rem; }
+        .tutor-figure img { display: block; transition: transform .5s ease, filter .45s ease; filter: grayscale(100%); }
+        .tutor-figure .tutor-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.85); transition: opacity .45s ease; pointer-events: none; }
+        .group:hover .tutor-figure .tutor-overlay { opacity: 0; }
+        .group:hover .tutor-figure img { filter: none; transform: scale(1.03); }
+    </style>
+    <style>
+      /* Footer hero background helper: uses --bg-pos-x for horizontal tuning */
+      .footer-hero {
+        background-size: cover;
+        background-repeat: no-repeat;
+         background-position: calc(var(--bg-pos-x, 50%) + var(--bg-offset, 0px)) center !important;
+        }
+        /* Additional styles can be added here */
+      
+    </style>
+    <style>
+      /* CTA/footer layout fixes: force gold tile + image overlap layout */
+      .elementor-216 .elementor-element-8b463bd { position: relative; overflow: visible; background: linear-gradient(312.28deg, #FFD601 0%, #FFE88E 59.9%, #FFD956 100%) !important; }
+      .elementor-216 .elementor-element-8b463bd .elementor-container { padding: 2.5rem 1.5rem !important; }
+      .elementor-216 .elementor-element-6ab8b81 > .elementor-widget-container { margin: -25% -24% -13.5% 0% !important; position: relative; z-index: 2; }
+      .elementor-216 .elementor-element-ded59f0 > .elementor-widget-container img,
+      .elementor-216 .elementor-element-6ab8b81 > .elementor-widget-container img {
+        width: 33% !important;
+        max-width: 420px;
+        height: auto !important;
+        object-fit: cover !important;
+        display: block;
+        position: absolute !important;
+        right: 3rem;
+        bottom: -2.5rem;
+        z-index: 3;
+        transform: translateZ(0);
+      }
+      .elementor-216 .elementor-element-8b463bd .elementor-column { position: relative; z-index: 1; }
+      /* ensure rounded tile is visible behind image */
+      .elementor-216 .elementor-element-8b463bd .elementor-element-populated { border-radius: 8px !important; }
+      @media (max-width: 1024px){
+        .elementor-216 .elementor-element-ded59f0 > .elementor-widget-container img,
+        .elementor-216 .elementor-element-6ab8b81 > .elementor-widget-container img { width: 44% !important; right: 2rem; bottom: -1.5rem; position: absolute !important; }
+      }
+      @media (max-width: 767px){
+        .elementor-216 .elementor-element-6ab8b81 > .elementor-widget-container { margin: 0 !important; }
+        .elementor-216 .elementor-element-ded59f0 > .elementor-widget-container img { width: 100% !important; position: static !important; max-width: none; }
+      }
+    </style>
+</head>
+<body class="bg-white dark:bg-background-dark transition-colors duration-300">
+<header class="bg-white py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
+<div class="flex items-center gap-4">
+  <a href="#" class="flex items-center">
+    <img src="assets/logo/SS Music Logo.png" alt="SS Music Academy logo" class="h-10 w-auto"/>
+  </a>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden">
+  <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md hover:bg-gray-100">
+    <span class="material-icons">menu</span>
+  </button>
+</div>
+
+<nav class="hidden md:flex items-center gap-6">
+  <a href="index.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Home</a>
+  <a href="course.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Courses</a>
+  <a href="events.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Events</a>
+  <a href="gallery.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Gallery</a>
+  <a href="contact.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Contact</a>
+</nav>
+<!-- Mobile nav (hidden by default) -->
+<div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 bg-white shadow-lg mt-16 z-40">
+  <div class="px-4 py-4 space-y-2">
+    <a href="index.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Home</a>
+    <a href="course.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Courses</a>
+    <a href="events.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Events</a>
+    <a href="gallery.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Gallery</a>
+    <a href="contact.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Contact</a>
+  </div>
+</div>
+</header>
+
+
+<!-- Life at SS Music hero (responsive with collage) -->
+<section id="home" class="min-h-[68vh] flex items-center py-12 bubble-gradient overflow-hidden border-b border-slate-100 dark:border-slate-800">
+  <div class="container mx-auto px-6 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="text-center lg:text-left">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold mb-6 tracking-tight">
+          Life at <span class="text-primary">SS Music</span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0">
+          A glimpse into the vibrant atmosphere, passionate performances, and dedicated learning at India's premier music academy.
+        </p>
+        <div class="mt-8 flex justify-center lg:justify-start gap-4">
+          <a href="course.html" class="inline-block bg-ss-dark text-white text-lg font-bold px-8 py-3 rounded-lg hover:bg-black transition-colors">Courses</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-12 grid-rows-6 gap-4 h-[420px] md:h-[520px] relative">
+        <div class="col-span-7 row-span-3">
+          <div class="red-cover h-full w-full rounded-lg shadow-xl">
+            <img alt="Musician singing" class="bw-photo home-bw" src="assets/home/home2.jpg" loading="lazy"/>
+            <div class="cover"></div>
+          </div>
+        </div>
+        <div class="col-span-5 row-span-4">
+          <img alt="Indian man playing piano" class="bw-photo home-bw w-full h-full object-cover rounded-lg shadow-xl" src="assets/home/home1.png" loading="lazy"/>
+        </div>
+        <div class="col-span-7 row-span-3">
+          <img alt="Drums close up" class="bw-photo home-bw w-full h-full object-cover rounded-lg shadow-xl" src="assets/home/home4.png" loading="lazy"/>
+        </div>
+        <div class="col-span-5 row-span-2">
+          <div class="red-cover h-full w-full rounded-lg shadow-xl">
+            <img alt="Musician portrait" class="bw-photo home-bw" src="assets/home/home3.png" loading="lazy"/>
+            <div class="cover"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded','false');
+      } else {
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+    // hide on resize to desktop
+    window.addEventListener('resize', function(){ if (window.innerWidth >= 768) { menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); } });
+  })();
+</script>
+
+<section class="py-20 px-6 md:px-12 bg-white dark:bg-gray-900 transition-colors">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-12 text-center">
+      <div class="p-8 border-b-4 border-primary bg-background-light dark:bg-gray-800 rounded-lg">
+        <span class="material-icons-outlined text-5xl text-primary mb-4">school</span>
+        <h3 class="text-xl font-bold mb-2 dark:text-white">Expert Faculty</h3>
+        <p class="text-gray-600 dark:text-gray-400">Learn from industry veterans and internationally certified musicians.</p>
+      </div>
+      <div class="p-8 border-b-4 border-primary bg-background-light dark:bg-gray-800 rounded-lg">
+        <span class="material-icons-outlined text-5xl text-primary mb-4">work_outline</span>
+        <h3 class="text-xl font-bold mb-2 dark:text-white">International Curriculum</h3>
+        <p class="text-gray-600 dark:text-gray-400">Structured framework to enable the students to earn certifications.</p>
+      </div>
+      <div class="p-8 border-b-4 border-primary bg-background-light dark:bg-gray-800 rounded-lg">
+        <span class="material-icons-outlined text-5xl text-primary mb-4">mic_external_on</span>
+        <h3 class="text-xl font-bold mb-2 dark:text-white">Modern Classroom</h3>
+        <p class="text-gray-600 dark:text-gray-400">Access to state-of-the-art classroom and practice facilities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Us content (from about us.html) -->
+<section id="about" class="relative py-24 bg-ss-red overflow-hidden text-white">
+  <div class="container mx-auto px-6 text-center max-w-4xl relative z-10">
+    <h1 class="text-5xl md:text-6xl font-display font-extrabold mb-8 tracking-tight">Our <span class="text-white">Vision</span></h1>
+    <div class="space-y-6 text-lg md:text-xl text-white leading-relaxed">
+      <p class="font-medium text-slate-900 dark:text-white italic">"To change the perception about music education in India."</p>
+      <p>To provide career-focused learning with the right foundation at the right age in the music arena. SS Music is also a leader in providing in-school music education.</p>
+      <p>They provide a strong foundational understanding of music. They also serve as effective tools for self-development and personal growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: Team / Founders -->
+
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-display font-extrabold text-center mb-16">Meet the <span class="text-primary">Founders</span></h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+      <div class="text-center group">
+        <div class="relative w-64 h-64 mx-auto mb-6">
+          <div class="absolute inset-0 bg-primary rounded-full opacity-10 group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-2 bg-gradient-to-tr from-primary/20 to-transparent rounded-full"></div>
+          <img alt="Sunitha Sambath" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500 relative z-10 border-4 border-white dark:border-slate-800 shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRgCYRi_gf2QDuKilVu-AXohY1i7n60eTABw8VzV0jNzA3jhgdVZAmZoTR3fkDMfg6Q3RM_i10wEeELDfuz_swNcKBZhnOaNWwL3fiUWPowdka3vQrgajdQK00jiH9upqF1ijFQiGxjXKADWN5x7lvkOjeTK9ZeKehgaKcXmHEP-jBL725PQJC_K3GxiXGJWJiYieg2KJBTc4XzTmPqi2L4OXmJJMSOmd26ZYcMT4dZr_k7MOwl3EVnQqN6tGiWGdovz6L3esd-UM"/>
+        </div>
+        <h3 class="text-2xl font-bold text-primary">Sunitha Sambath</h3>
+    </div>
+      <div class="text-center group">
+        <div class="relative w-64 h-64 mx-auto mb-6">
+          <div class="absolute inset-0 bg-primary rounded-full opacity-10 group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-2 bg-gradient-to-tr from-primary/20 to-transparent rounded-full"></div>
+          <img alt="Vijay Raja Selvan" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500 relative z-10 border-4 border-white dark:border-slate-800 shadow-xl" src="assets/founder/vijay.png"/>
+        </div>
+        <h3 class="text-2xl font-bold text-primary">Vijay Raja Selvan</h3>
+    </div>
+      <div class="text-center group">
+        <div class="relative w-64 h-64 mx-auto mb-6">
+          <div class="absolute inset-0 bg-primary rounded-full opacity-10 group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-2 bg-gradient-to-tr from-primary/20 to-transparent rounded-full"></div>
+          <img alt="Vidhya Vanisri" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500 relative z-10 border-4 border-white dark:border-slate-800 shadow-xl" src="assets/founder/vidhya.png"/>
+        </div>
+        <h3 class="text-2xl font-bold text-primary">Vidhya Vanisri</h3>
+    </div>
+    </div>
+  </div>
+</section>
+
+  <!-- SECTION: Courses -->
+  <section id="courses" class="relative py-24 bg-ss-red overflow-hidden text-white full-bleed">
+  <div class="container mx-auto px-6 text-center max-w-4xl relative z-10">
+      <h2 class="text-4xl font-display font-extrabold text-center mb-8 text-white">Courses Offered</h2>
+      <p class="courses-subtitle text-center mb-6 text-white/90">Master your favorite instrument with our expert instructors</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+        <div class="text-center group">
+          <a href="singing.html" class="block" aria-label="Open Vocal course">
+            <div class="relative w-64 h-64 mx-auto mb-6">
+              <div class="absolute inset-0 bg-black rounded-full opacity-75 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <img alt="Vocal" class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10 shadow-none" src="assets/course/Vocal.jpg"/>
+            </div>
+          </a>
+          <h3 class="text-2xl font-bold text-white"><a href="singing.html" class="inline-block hover:underline">Vocal</a></h3>
+        </div>
+        <div class="text-center group">
+          <a href="piano.html" class="block" aria-label="Open Piano course">
+            <div class="relative w-64 h-64 mx-auto mb-6">
+              <div class="absolute inset-0 bg-black rounded-full opacity-75 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <img alt="Piano" class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10 shadow-none" src="assets/course/Piano.jpg"/>
+            </div>
+          </a>
+          <h3 class="text-2xl font-bold text-white"><a href="piano.html" class="inline-block hover:underline">Piano</a></h3>
+        </div>
+        <div class="text-center group">
+          <a href="keyboard.html" class="block" aria-label="Open Keyboard course">
+            <div class="relative w-64 h-64 mx-auto mb-6">
+              <div class="absolute inset-0 bg-black rounded-full opacity-75 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <img alt="Keyboard" class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10 shadow-none" src="assets/course/Keyboard.jpg"/>
+            </div>
+          </a>
+          <h3 class="text-2xl font-bold text-white"><a href="keyboard.html" class="inline-block hover:underline">Keyboard</a></h3>
+        </div>
+        <div class="text-center group">
+          <a href="violin.html" class="block" aria-label="Open Violin course">
+            <div class="relative w-64 h-64 mx-auto mb-6">
+              <div class="absolute inset-0 bg-black rounded-full opacity-75 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <img alt="Violin" class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10 shadow-none" src="assets/course/Violin.jpg"/>
+            </div>
+          </a>
+          <h3 class="text-2xl font-bold text-white"><a href="violin.html" class="inline-block hover:underline">Violin</a></h3>
+        </div>
+        <div class="text-center group">
+          <a href="guitar.html" class="block" aria-label="Open Guitar course">
+            <div class="relative w-64 h-64 mx-auto mb-6">
+              <div class="absolute inset-0 bg-black rounded-full opacity-75 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <img alt="Guitar" class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10 shadow-none" src="assets/course/Guitar.jpg"/>
+            </div>
+          </a>
+          <h3 class="text-2xl font-bold text-white"><a href="guitar.html" class="inline-block hover:underline">Guitar</a></h3>
+        </div>
+        <div class="text-center group">
+          <a href="drums.html" class="block" aria-label="Open Drums course">
+            <div class="relative w-64 h-64 mx-auto mb-6">
+              <div class="absolute inset-0 bg-black rounded-full opacity-75 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <img alt="Drums" class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10 shadow-none" src="assets/course/Drums.jpg"/>
+            </div>
+          </a>
+          <h3 class="text-2xl font-bold text-white"><a href="drums.html" class="inline-block hover:underline">Drums</a></h3>
+        </div>
+      </div>
+      <div class="flex justify-center mt-8">
+        <a href="course.html" class="bg-white text-ss-red font-bold px-6 py-3 rounded-lg shadow">Course Details</a>
+      </div>
+    </div>
+  </section>
+
+<section class="relative max-w-6xl mx-auto px-4 pb-32 mt-24">
+<div class="relative bg-primary rounded-2xl shadow-2xl flex flex-col md:flex-row items-center min-h-[150px]">
+<div class="w-full md:w-2/3 p-10 md:p-16 z-10">
+<h2 class="text-2xl md:text-3xl font-black text-white leading-tight">
+                KICKSTART YOUR
+            </h2>
+<h3 class="text-1xl md:text-2xl font-semibold text-white/90 mt-2 mb-8">
+                MUSICAL JOURNEY WITH US
+            </h3>
+<button class="bg-[#2D2D2D] hover:bg-black text-white font-bold py-4 px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl uppercase tracking-widest text-sm border-2 border-white/10">
+                Enquire now
+            </button>
+</div>
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-full h-80 z-20 pointer-events-none">
+<div class="relative w-full h-full overflow-visible">
+<img alt="Musician playing guitar cutout" class="absolute bottom-0 right-0 h-full w-auto object-contain z-20 drop-shadow-[0_25px_35px_rgba(0,0,0,0.6)]" src="assets/home/home5.png"/>
+
+  
+</div>
+</div>
+  </div>
+</div>
+</div>
+</section>
+
+
+<footer class="bg-slate-950 text-white pt-24 pb-12">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+      <div class="space-y-6">
+        <div>
+          <span class="text-xl font-display font-bold tracking-tight">SS Music Academy</span>
+        </div>
+        <p class="text-slate-400 max-w-xs leading-relaxed">
+          India's first career-oriented music academy with the vision to transform the music education system.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold mb-8 text-primary uppercase tracking-widest">Company</h4>
+        <ul class="space-y-4 text-slate-400 font-medium">
+          <li><a class="hover:text-white transition-colors" href="#">About</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Contact</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Courses</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Events</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold mb-8 text-primary uppercase tracking-widest">Support</h4>
+        <ul class="space-y-4 text-slate-400 font-medium">
+          <li><a class="hover:text-white transition-colors" href="careers.html">Career</a></li>
+          <li><a class="hover:text-white transition-colors" href="terms.html">Terms</a></li>
+          <li><a class="hover:text-white transition-colors" href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+          <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+            <span class="material-icons-outlined text-base">phone</span>
+          </div>
+          <div>
+            <div class="text-slate-900 font-semibold text-sm">Chennai - Porur</div>
+            <div class="text-slate-700 text-xs">+91-9884595666</div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+          <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+            <span class="material-icons-outlined text-base">phone</span>
+          </div>
+          <div>
+            <div class="text-slate-900 font-semibold text-sm">Chennai - Kovur</div>
+            <div class="text-slate-700 text-xs">Email id : +91 98846 40999</div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-3 flex items-center space-x-3">
+          <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-900">
+            <span class="material-icons-outlined text-base">phone</span>
+          </div>
+          <div>
+            <div class="text-slate-900 font-semibold text-sm">USA - Mckinney, Texas</div>
+            <div class="text-slate-700 text-xs">+1-(945)-350-8347</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+      <p>© 2024 SS Music Academy. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Standardized WhatsApp floating button -->
+<div class="fixed bottom-8 right-8 z-50">
+  <a class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform" href="https://wa.me/+919884595666" target="_blank">
+    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.63 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+  </a>
+</div>
+
+  <script>
+    // Enable tap-to-reveal on touch devices for images using these classes
+    (function(){
+      if (!('ontouchstart' in window)) return;
+      document.querySelectorAll('.home-bw, .bw-photo').forEach(function(img){
+        img.addEventListener('touchstart', function _toggle(e){
+          this.classList.toggle('revealed');
+        });
+      });
+      // Also support tapping the red-cover container (overlay sits above image)
+      document.querySelectorAll('.red-cover').forEach(function(card){
+        card.addEventListener('touchstart', function(){
+          var img = this.querySelector('.home-bw, .bw-photo');
+          if (img) img.classList.toggle('revealed');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
+
+
+
+
+

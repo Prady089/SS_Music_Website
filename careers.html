@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Careers - SS Music Academy</title>
+  
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#dc2626", // Vibrant Red
+              "background-light": "#fef2f2",
+              "background-dark": "#111827",
+              "ss-red": "#dc2626",
+              "ss-dark": "#1a1a1a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "4px",
+            },
+          },
+        },
+      };
+    </script><link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;color:#111;line-height:1.5}h1,h2{color:#111}a{color:#dc2626}</style>
+</head>
+<body class="bg-white dark:bg-background-dark transition-colors duration-300">
+
+<header class="bg-white py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
+<div class="flex items-center gap-4">
+  <a href="#" class="flex items-center">
+    <img src="assets/logo/SS Music Logo.png" alt="SS Music Academy logo" class="h-10 w-auto"/>
+  </a>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden">
+  <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md hover:bg-gray-100">
+    <span class="material-icons">menu</span>
+  </button>
+</div>
+
+<nav class="hidden md:flex items-center gap-6">
+  <a href="index.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Home</a>
+  <a href="course.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Courses</a>
+  <a href="events.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Events</a>
+  <a href="gallery.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Gallery</a>
+  <a href="contact.html" class="text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100 transition">Contact</a>
+</nav>
+<!-- Mobile nav (hidden by default) -->
+<div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 bg-white shadow-lg mt-16 z-40">
+  <div class="px-4 py-4 space-y-2">
+    <a href="index.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Home</a>
+    <a href="course.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Courses</a>
+    <a href="events.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Events</a>
+    <a href="gallery.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Gallery</a>
+    <a href="contact.html" class="block text-ss-red font-semibold px-3 py-2 rounded hover:bg-gray-100">Contact</a>
+  </div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-6 py-12">
+  <section class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-lg">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <h1 class="text-4xl md:text-5xl font-display font-extrabold text-slate-900">Careers</h1>
+      <span class="inline-flex items-center rounded-full bg-white border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600">Last Updated: February 1, 2026</span>
+    </div>
+    <p class="mt-6 text-lg text-slate-600 leading-relaxed">We are always looking for trained and experienced tutors for in-class as well as online sessions. If you are passionate about teaching music and mentoring students, we would love to hear from you.</p>
+  </section>
+
+  <section class="mt-10 space-y-6">
+    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+      <h2 class="text-xl font-bold text-slate-900">What We Are Looking For</h2>
+      <ul class="mt-3 list-disc pl-5 space-y-2 text-slate-600">
+        <li>Strong subject expertise in vocals, instruments, or music production</li>
+        <li>Prior teaching or coaching experience (in-person and/or online)</li>
+        <li>Clear communication, patience, and a student-first mindset</li>
+        <li>Professionalism and commitment to scheduled classes</li>
+      </ul>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+      <h2 class="text-xl font-bold text-slate-900">Responsibilities</h2>
+      <ul class="mt-3 list-disc pl-5 space-y-2 text-slate-600">
+        <li>Conduct structured lessons based on academy curriculum</li>
+        <li>Guide students with technique, practice routines, and progress tracking</li>
+        <li>Prepare students for performances, exams, or showcases</li>
+        <li>Collaborate with the academy team to maintain quality standards</li>
+      </ul>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+      <h2 class="text-xl font-bold text-slate-900">How to Apply</h2>
+      <p class="mt-2 text-slate-600">Please share a short introduction, your teaching background, and the area you specialize in. You can reach us via the <a class="text-ss-red font-semibold hover:underline" href="contact.html">Contact</a> page and we will get back to you.</p>
+    </div>
+  </section>
+
+  <div class="mt-10">
+    <a href="index.html" class="inline-flex items-center gap-2 text-ss-red font-semibold hover:underline">Back to Home</a>
+  </div>
+</main>
+
+<script>
+  (function(){
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded','false');
+      } else {
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+    // hide on resize to desktop
+    window.addEventListener('resize', function(){ if (window.innerWidth >= 768) { menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); } });
+  })();
+</script>
+
+</body>
+</html>
+
+
+
+
+

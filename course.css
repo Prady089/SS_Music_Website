@@ -1,0 +1,347 @@
+/* Course page base variables and utilities */
+:root{
+  --bg-light: #f7f7f7;
+  --text-secondary: #6b7280; /* slate-500 */
+  --text-primary: #dc2626;   /* red */
+  --border-light: #e5e7eb;  /* slate-200 */
+  --accent: #dc2626;
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+.btn{display:inline-block;padding:0.75rem 1.25rem;border-radius:12px;font-weight:700;text-decoration:none}
+.btn-lg{padding:0.9rem 1.6rem}
+
+/* ===== Course Page Styles ===== */
+
+/* Course Hero */
+.course-hero {
+    margin-top: 60px;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    filter: blur(0px);
+}
+
+.course-hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(220, 0, 0, 0.4) 100%);
+    z-index: 1;
+}
+
+.course-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.course-hero-content h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.course-hero-content p {
+    font-size: clamp(18px, 2vw, 24px);
+    opacity: 0.95;
+}
+
+/* Course Overview */
+.course-overview {
+    padding: 100px 0;
+    background: white;
+}
+
+.overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.overview-content h2 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.overview-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+/* Course Curriculum */
+.course-curriculum {
+    padding: 100px 0;
+    background: var(--bg-light);
+}
+
+.course-curriculum h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.curriculum-item {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.curriculum-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.curriculum-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.curriculum-item h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.curriculum-item p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Course Benefits */
+.course-benefits {
+    padding: 100px 0;
+    background: white;
+}
+
+.course-benefits h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background: var(--bg-light);
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    background: white;
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.benefit-card h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.benefit-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Course Structure */
+.course-structure {
+    padding: 100px 0;
+    background: var(--bg-light);
+}
+
+.course-structure h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.structure-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.structure-item {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.structure-item:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.structure-item h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.structure-item > p {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.structure-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.structure-item ul li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+}
+
+.structure-item ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Course CTA */
+.course-cta {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #dc0000 0%, #aa0000 100%);
+    color: white;
+    text-align: center;
+}
+
+.course-cta h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.course-cta p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.course-cta .btn-primary {
+    background: white;
+    color: #dc0000;
+}
+
+.course-cta .btn-primary:hover {
+    background: var(--bg-light);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.course-cta .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    text-decoration: none;
+}
+
+.course-cta .btn-secondary:hover {
+    background: white;
+    color: #dc0000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .course-hero {
+        height: 50vh;
+    }
+
+    .course-hero-content h1 {
+        font-size: 32px;
+    }
+
+    .course-hero-content p {
+        font-size: 16px;
+    }
+
+    .course-overview,
+    .course-curriculum,
+    .course-benefits,
+    .course-structure,
+    .course-cta {
+        padding: 60px 0;
+    }
+
+    .overview-content h2,
+    .course-curriculum h2,
+    .course-benefits h2,
+    .course-structure h2,
+    .course-cta h2 {
+        font-size: 32px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
